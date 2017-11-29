@@ -1,27 +1,32 @@
 <template>
-    <v-card>
-      <v-layout row wrap  v-for="(item, index) in items" :key="`${label}-item-${index}`" class="pa-2">
-        <v-flex xs12 sm4>
-          <v-select :items="types" v-model="item.type" single-line bottom></v-select>
-        </v-flex>
-        <v-flex xs9 sm6>
-          <v-text-field  class="pd-5 ml-1" v-if="label === 'Email'" :rules="emailRules" :label="label" v-model="item.value" :mask="mask" single-line autofocus></v-text-field>
-          <v-text-field class="pd-5 ml-1" :label="label" v-model="item.value" :rules="phoneRules" :mask="mask" single-line autofocus v-else></v-text-field>          
-        </v-flex>
-        <v-flex xs2 class="mt-3">
-          <v-btn small v-if="items.length > 1" icon outline color="red" @click="remove(index)"><v-icon color="red">remove</v-icon></v-btn>
-        </v-flex>
-      </v-layout>
-      <v-divider></v-divider>
-    <!-- Add new entry -->
-      <v-layout row wrap :key="`${label}-item-new`" class="pa-2">
-        <v-flex xs12 sm4>
-          <v-select :items="types" v-model="newEntry.type" single-line bottom></v-select>
-        </v-flex>
-        <v-flex xs9 sm6>
-          <v-text-field  class="pd-5 ml-1" :label="label" @keyup="keyup" v-model="newEntry.value" :mask="mask" single-line autofocus></v-text-field>
-        </v-flex>
-      </v-layout>
+    <v-card class="mt-2">
+      <v-subheader>{{ label }}</v-subheader>
+      <template v-for="(item, index) in items">
+        <v-layout row wrap :key="`${label}-item-${index}`" class="pa-2">
+          <v-flex xs12 :class="{'sm4 mr-2': items.length > 1, 'sm5 mr-2': items.length === 1}">
+            <v-select :items="types" v-model="item.type" bottom required></v-select>
+          </v-flex>
+          <v-flex :class="{'sm6 mr-2 xs9': items.length > 1, 'sm6 xs12': items.length === 1}">
+            <v-text-field  v-if="label === 'Email'" :rules="emailRules" :label="label" v-model="item.value" :mask="mask" required autofocus></v-text-field>
+            <v-text-field :label="label" v-model="item.value" :rules="phoneRules" :mask="mask" autofocus v-else></v-text-field>          
+          </v-flex>
+          <v-flex class="mt-2 --text-center" v-if="items.length > 1">
+            <v-btn icon flat outline color="red" @click="remove(index)"><v-icon color="red">remove</v-icon></v-btn>
+          </v-flex>
+        </v-layout>
+        <v-divider></v-divider>
+      </template>        
+      <!-- Add new entry -->
+      <template v-if="items[0].value.trim()">
+        <v-layout row wrap :key="`${label}-item-new`" class="pa-2">
+          <v-flex xs12 :class="{'sm4 mr-2': items.length > 1, 'sm5 mr-2': items.length === 1}">
+            <v-select :items="types" v-model="newEntry.type" bottom></v-select>
+          </v-flex>
+          <v-flex :class="{'sm6 mr-2 xs9': items.length > 1, 'sm6 xs12': items.length === 1}">
+            <v-text-field  class="pd-5 ml-1" :label="label" @keyup="keyup" v-model="newEntry.value" :mask="mask" single-line></v-text-field>
+          </v-flex>
+        </v-layout>
+      </template>
     </v-card>            
 </template>
 <script>

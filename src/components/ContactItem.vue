@@ -1,24 +1,22 @@
 <template>
-  <v-container lg-8 offset-lg2>
-      <v-toolbar fixed app color="indigo darken-4">
-        <v-btn small to="/">back</v-btn>
-        <v-spacer></v-spacer>
-        <v-btn small @click="submit">Ok</v-btn>
-      </v-toolbar>      
-      <v-form v-model="valid" ref="form">
-        <v-text-field label="First Name" v-model="person.firstname" :rules="requiredRules" required single-line autofocus></v-text-field>
-        <v-text-field label="Last Name" v-model="person.lastname" :rules="requiredRules" required single-line></v-text-field>
-        <v-text-field label="Birth Date" return-masked-value v-model="person.birthdate" :rules="requiredRules" mask="##/##/####" hint="MM/DD/YYYY" required single-line></v-text-field>
-        <v-card>  
-          <List :items="person.phoneNumbers" :types="phoneNumberTypes" label="Phone" mask="phone"/>         
-        </v-card>
-        <v-card class="mt-2">  
-          <List :items="person.emailAddresses" :types="emailAddressTypes" label="Email" />         
-        </v-card>
-        <v-card class="mt-2">  
-          <AddressList :items="person.addresses" />         
-        </v-card>
-      </v-form>
+  <v-container>
+    <v-layout>
+        <v-flex md8 offset-md2 lg6 offset-lg3>
+          <v-toolbar fixed app color="indigo darken-4">
+            <v-btn small to="/">back</v-btn>
+            <v-spacer></v-spacer>
+            <v-btn small @click="submit">Ok</v-btn>
+          </v-toolbar>      
+          <v-form v-model="valid" ref="form">
+            <v-text-field label="First Name" v-model="person.firstname" :rules="requiredRules" required single-line autofocus></v-text-field>
+            <v-text-field label="Last Name" v-model="person.lastname" :rules="requiredRules" required single-line></v-text-field>
+            <v-text-field label="Birth Date" return-masked-value v-model="person.birthdate" :rules="requiredRules" mask="##/##/####" hint="MM/DD/YYYY" required single-line></v-text-field>
+            <List :items="person.phoneNumbers" :types="phoneNumberTypes" label="Phone" mask="phone"/>         
+            <List :items="person.emailAddresses" :types="emailAddressTypes" label="Email" />
+            <AddressList :items="person.addresses" />
+          </v-form>
+        </v-flex> 
+    </v-layout>
   </v-container>
 </template>
 <script>

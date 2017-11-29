@@ -1,5 +1,5 @@
 <template>
-    <v-container lg-8 offset-lg2>
+    <v-container lg8 offset-lg2>
         <v-toolbar fixed app color="indigo darken-4">
           <v-toolbar-title v-text="'Contacts'" class="white--text"></v-toolbar-title>
           <v-spacer></v-spacer>
