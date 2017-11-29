@@ -10,7 +10,8 @@ Vue.use(Vuex)
 const state = {
   query: '',
   countries,
-  persons: []
+  persons: [],
+  toast: {id: null}
 }
 
 export default new Vuex.Store({

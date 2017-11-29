@@ -20,6 +20,8 @@ import {
   VSelect,
   VForm,
   VDialog,
+  VDatePicker,
+  VSnackbar,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -46,6 +48,8 @@ Vue.use(Vuetify, {
     VSelect,
     VForm,
     VDialog,
+    VDatePicker,
+    VSnackbar,
     transitions
   }
 })

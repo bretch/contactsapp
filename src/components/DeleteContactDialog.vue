@@ -18,6 +18,7 @@
           this.$store.commit('DELETE_PERSON', this.id)
           this.$emit('close')
           this.$router.replace('/')
+          this.$store.dispatch('addToast', {text: 'Successfully deleted contact.', color: 'success'})
         }
       }
     }

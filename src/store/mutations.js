@@ -14,5 +14,11 @@ export default {
   [mutationTypes.DELETE_PERSON] (state, id) {
     const index = state.persons.findIndex(p => p.id === id)
     state.persons.splice(index, 1)
+  },
+  [mutationTypes.ADD_TOAST] (state, toast) {
+    state.toast = toast
+  },
+  [mutationTypes.CLOSE_TOAST] (state) {
+    state.toast = {id: null}
   }
 }
