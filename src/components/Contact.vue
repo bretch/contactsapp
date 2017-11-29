@@ -2,7 +2,7 @@
   <v-layout row>
     <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg4 offset-lg4 xl2 offset-xl5>
       <v-card>
-        <v-card-media src="/static/background.jpg" height="300px">
+        <v-card-media src="/static/background.jpg" height="250px">
           <v-layout column class="media">
             <v-card-title>
               <v-btn dark icon to="/">
