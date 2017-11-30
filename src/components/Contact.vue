@@ -1,5 +1,5 @@
 <template>
-  <v-layout row>
+  <v-layout row v-if="person">
     <v-flex xs12 sm8 offset-sm2 md6 offset-md3 lg4 offset-lg4 xl2 offset-xl5>
       <v-card flat>
         <v-card-media src="/static/background.jpg" height="300px">

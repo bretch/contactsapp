@@ -22,6 +22,7 @@ import {
   VDialog,
   VDatePicker,
   VSnackbar,
+  VProgressCircular,
   transitions
 } from 'vuetify'
 import '../node_modules/vuetify/src/stylus/app.styl'
@@ -50,6 +51,7 @@ Vue.use(Vuetify, {
     VDialog,
     VDatePicker,
     VSnackbar,
+    VProgressCircular,
     transitions
   }
 })

@@ -14,10 +14,10 @@
     export default {
       props: ['dialog', 'id'],
       methods: {
-        remove () {
-          this.$store.commit('DELETE_PERSON', this.id)
+        async remove () {
           this.$emit('close')
           this.$router.replace('/')
+          await this.$store.dispatch('deletePerson', this.id)
           this.$store.dispatch('addToast', {text: 'Successfully deleted contact.', color: 'success'})
         }
       }

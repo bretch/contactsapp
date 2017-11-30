@@ -84,8 +84,8 @@
           }
         }
       },
-      update () {
-        this.$store.commit('UPDATE_PERSON', this.person)
+      async update () {
+        await this.$store.dispatch('updatePerson', this.person)
         this.$router.replace(`/contacts/${this.$route.params.id}`)
         this.$store.dispatch('addToast', {text: 'Successfully updated contact.', color: 'success'})
       },

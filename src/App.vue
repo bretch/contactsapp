@@ -1,7 +1,12 @@
 <template>
   <v-app>
     <v-content>
-      <router-view>
+      <v-container fill-height v-if="loading">
+        <v-flex md-1 offset-md6 sm-2 offset-sm5 xs-2 offset-xs5>
+          <v-progress-circular indeterminate v-bind:size="70" v-bind:width="6" color="indigo darken-4"></v-progress-circular>
+        </v-flex>      
+      </v-container>
+      <router-view  v-else>
         <v-container fluid></v-container>
       </router-view>
     </v-content>
@@ -15,6 +20,9 @@
 <script>
   import {mapState} from 'vuex'
   export default {
-    computed: mapState(['toast'])
+    computed: mapState(['toast', 'loading']),
+    mounted () {
+      this.$store.dispatch('getPersons')
+    }
   }
 </script>

@@ -12,7 +12,7 @@ const filterPerson = ({firstname, lastname, phoneNumbers, emailAddresses}, query
 }
 
 export default {
-  getPersonById: ({persons}) => id => persons.find(person => person.id === id),
+  getPersonById: ({persons}) => id => persons.find(person => person.id.toString() === id.toString()),
   sortedByAlphabet: ({persons, query}) => {
     const filteredPersons = persons.filter(person => filterPerson(person, query))
     let sorted = {}

@@ -4,6 +4,9 @@ export default {
   [mutationTypes.UPDATE_QUERY] (state, query) {
     state.query = query.toLowerCase()
   },
+  [mutationTypes.RECEIVE_PERSONS] (state, persons) {
+    state.persons = persons
+  },
   [mutationTypes.ADD_PERSON] (state, person) {
     state.persons.push(person)
   },
@@ -20,5 +23,8 @@ export default {
   },
   [mutationTypes.CLOSE_TOAST] (state) {
     state.toast = {id: null}
+  },
+  [mutationTypes.TOGGLE_LOADING] (state) {
+    state.loading = !state.loading
   }
 }

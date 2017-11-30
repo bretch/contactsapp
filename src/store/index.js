@@ -11,7 +11,8 @@ const state = {
   query: '',
   countries,
   persons: [],
-  toast: {id: null}
+  toast: {id: null},
+  loading: false
 }
 
 export default new Vuex.Store({
